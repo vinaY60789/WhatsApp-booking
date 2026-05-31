@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Booking System</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+      color:white;
+      text-align:center;
+    }
+
+    header{
+      padding:30px;
+      font-size:28px;
+      font-weight:700;
+    }
+
+    .container{
+      padding:20px;
+    }
+
+    .card{
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius:20px;
+      padding:20px;
+      margin:20px auto;
+      width:90%;
+      max-width:400px;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:scale(1.05);
+    }
+
+    input, select{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      border:none;
+      border-radius:10px;
+    }
+
+    button{
+      background:#25D366;
+      border:none;
+      padding:12px 20px;
+      border-radius:10px;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#1ebe5d;
+    }
+
+    .icon{
+      font-size:40px;
+      margin-bottom:10px;
+      color:#25D366;
+    }
+
+    footer{
+      margin-top:20px;
+      padding:10px;
+      font-size:14px;
+      opacity:0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  📅 Smart Booking System
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <div class="icon"><i class="fas fa-calendar-check"></i></div>
+    <h2>Book Your Appointment</h2>
+
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="date" id="date">
+
+    <select id="service">
+      <option>Select Service</option>
+      <option>Haircut</option>
+      <option>Facial</option>
+      <option>Consultation</option>
+    </select>
+
+    <button onclick="sendWhatsApp()">Book on WhatsApp</button>
+  </div>
+
+</div>
+
+<footer>
+  🚀 Powered by Vinay Khatri| WhatsApp Booking System
+</footer>
+
+<script>
+function sendWhatsApp(){
+  let name = document.getElementById("name").value;
+  let date = document.getElementById("date").value;
+  let service = document.getElementById("service").value;
+
+  let message = `Hello, I want to book an appointment.%0AName: ${name}%0ADate: ${date}%0AService: ${service}`;
+
+  let phone = "917895252570"; // ← यहाँ client का number डालना
+
+  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}
+</script>
+
+</body>
+</html>
